@@ -6,7 +6,21 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+.tier1{                 //foto grote
+    width:15%;
+    height:auto;
+    margin:10px;
+}
+.tier2{
+    width:10%;
+    height:auto;
+    margin:10px;
+}
+.tier3{
+    width:5%;
+    height:auto;
+    margin:10px;
+}
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
