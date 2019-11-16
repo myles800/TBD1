@@ -70,15 +70,4 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-    protected function edit(Request $request)
-    {
-        $validatieData=$request->validate([
-            'email'=>'required|email|max:255|unique:users',
-            'name'=>'required|email|max:255']);
-        $input = Request()->only(['email', 'name']);
-        Auth::user()->email=$input['email'];
-        Auth::user()->name=$input['name'];
-        Auth::user()->save();
-        return redirect('home');
-    }
 }

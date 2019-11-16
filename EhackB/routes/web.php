@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
 Route::put('/edit', 'Auth\RegisterController@edit')->name('edit');
 
 Route::name('Sessie.')->group(function () {
@@ -27,10 +29,18 @@ Route::name('Sessie.')->group(function () {
     Route::get('sessieDetails/{id}', 'SessieController@details')->name('details');
 
 
-    Route::get('admin', 'UseController@admina')->name('homeAdmin');
 
     Route::put('editPost/{id}', 'UseController@editPost')->name('editPost');
 
     Route::post('createPost', 'UseController@createPost')->name('createPost');
 
 });
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('/login','Auth\AdminLoginController@showLogin')->name('admin_login');
+    Route::post('/login','Auth\AdminLoginController@login')->name('admin_login_submit');
+    Route::get('/', 'AdminController@index')->name('admin');
+
+});
+
