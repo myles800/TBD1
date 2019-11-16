@@ -14,16 +14,18 @@
                         </div>
                     @endif
 
-                        <form>
+                        <form method="POST" action="{{route('edit')}}">
+                            @method('PUT')
+                            @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{Auth::user()->email}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <label for="name">Email address</label>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="{{Auth::user()->name}}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Change</button>
                         </form>
                 </div>
             </div>
