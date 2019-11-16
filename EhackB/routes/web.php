@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $sponser=\App\Sponser::all();
+    return view('layouts/master',["sponser"=>$sponser]);
 });
 
 Auth::routes();
