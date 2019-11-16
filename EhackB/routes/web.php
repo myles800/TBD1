@@ -15,24 +15,23 @@ Route::get('/', function () {
     $sponser=\App\Sponser::all();
     return view('layouts/master',["sponser"=>$sponser]);
 });
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
 Route::put('/edit', 'Auth\RegisterController@edit')->name('edit');
 
-Route::name('Sessie.')->group(function () {
-
-    Route::get('sessieDetails/{id}', 'SessieController@details')->name('details');
+Route::prefix('sessie')->group(function () {
 
 
+    Route::get('/create','SessieController@create')->name('sessieCreate');
+
+    Route::get('/edit','SessieController@edit')->name('sessieEdit');
+
+
+    Route::get('admin', 'UseController@admina')->name('homeAdmin');
 
     Route::put('editPost/{id}', 'UseController@editPost')->name('editPost');
 
-    Route::post('createPost', 'UseController@createPost')->name('createPost');
+    Route::post('createPost', 'SessieController@createPost')->name('createPost');
 
 });
 

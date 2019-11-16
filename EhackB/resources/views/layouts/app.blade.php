@@ -1,4 +1,4 @@
-@include('Partials.header')
+@include('Partials.adminHeader')
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>

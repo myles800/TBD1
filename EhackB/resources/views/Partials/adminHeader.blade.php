@@ -1,4 +1,4 @@
-@section('title','EhackB')
+@section('title','EhackB Admin')
 
 @section('header')
     <nav class="navbar navbar-expand-lg " style="background-color: white;">
@@ -8,7 +8,10 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="{{route('sessieCreate')}}">Sessie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Game</a>
                 </li>
 
             </ul>
@@ -28,7 +31,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item " href="{{route('home')}}">Profiel</a>
+                        <a class="dropdown-item " href="{{route('admin')}}">Profiel</a>
 
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
