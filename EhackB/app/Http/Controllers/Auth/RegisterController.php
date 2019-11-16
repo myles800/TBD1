@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -68,5 +69,16 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+    protected function edit(Request $request)
+    {
+        $validatieData=$request->validate([
+            'email'=>'required|email|max:255|unique:users',
+            'name'=>'required|email|max:255']);
+        $input = Request()->only(['email', 'name']);
+        Auth::user()->email=$input['email'];
+        Auth::user()->name=$input['name'];
+        Auth::user()->save();
+        return redirect('home');
     }
 }
