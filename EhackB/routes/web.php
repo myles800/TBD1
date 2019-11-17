@@ -22,16 +22,13 @@ Route::put('/edit', 'Auth\RegisterController@edit')->name('edit');
 Route::prefix('sessie')->group(function () {
 
 
-    Route::get('/create','SessieController@create')->name('sessieCreate');
+    Route::get('/create','SessieController@create')->name('sessie_create');
 
-    Route::get('/edit','SessieController@edit')->name('sessieEdit');
+    Route::get('/edit/{id}','SessieController@edit')->name('sessie_edit');
 
+    Route::put('editPost/{id}', 'SessieController@editPost')->name('sessie_edit_post');
 
-    Route::get('admin', 'UseController@admina')->name('homeAdmin');
-
-    Route::put('editPost/{id}', 'UseController@editPost')->name('editPost');
-
-    Route::post('createPost', 'SessieController@createPost')->name('createPost');
+    Route::post('createPost', 'SessieController@createPost')->name('sessie_create_post');
 
 });
 
@@ -40,6 +37,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/login','Auth\AdminLoginController@showLogin')->name('admin_login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin_login_submit');
     Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('/home','AdminHomeController@index')->name('admin_home');
+
 
 });
 

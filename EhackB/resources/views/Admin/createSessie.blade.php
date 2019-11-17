@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-header">Create Sessie</div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('createPost')}}">
+                        <form method="POST" action="{{route('sessie_create_post')}}">
                             @csrf
                             <div class="form-group">
                                 <label for="title">Tittel</label>

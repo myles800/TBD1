@@ -10,14 +10,20 @@ class SessieController extends Controller
     public function editPost(Request $request,$id)
     {
         $validatieData=$request->validate([
-            'tittle'=>'required|max:30|min:3',
-            'description'=>'required|max:30|min:3']);
-        $input = $request->only(['tittle', 'description']);
-        $post1 = Sessie::find($id);
-        $post1->tittle=$input['tittle'];
-        $post1->description=$input['description'];
-        $post1->save();
-        return redirect('admin');
+            'title'=>'required|max:30|min:3',
+            'photo'=>'required',
+            'desc1'=>'required|max:50|min:3',
+            'desc2'=>'required|max:255|min:3',
+            'places'=>'required|max:255|min:1',]);
+        $input = $request->only(['title', 'photo','desc1','desc2','places']);
+        $post = Sessie::find($id);
+        $post->title=$input['title'];
+        $post->photo=$input['photo'];
+        $post->desc1=$input['desc1'];
+        $post->desc2=$input['desc2'];
+        $post->places=$input['places'];
+        $post->save();
+        return redirect()->route('admin_home');
     }
     public function createPost(Request $request)
     {
@@ -26,18 +32,17 @@ class SessieController extends Controller
             'photo'=>'required',
                 'desc1'=>'required|max:50|min:3',
                 'desc2'=>'required|max:255|min:3',
-                'places'=>'required|max:255|min:3',]);
+                'places'=>'required|max:255|min:1',]);
         $Sessie = Sessie::create(['title' => $request->input('title'),'photo' => $request->input('photo')
             ,'desc1' => $request->input('desc1'),'desc2' => $request->input('desc2'),'places' => $request->input('places')]);
-        return redirect('admin');
+        return redirect()->route('admin_home');
     }
     public function create(){
             return view('Admin/createSessie');
     }
 
-    public function edit($id){
-        $sessie=Sessie::find($id);
-        return view('Admin/editSessie',["sessie"=>$sessie]);
+    public function edit(){
+        return view('Admin/editSessie');
     }
     public function details($id)
     {

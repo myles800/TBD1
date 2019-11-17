@@ -5,10 +5,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{route('admin_home')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('sessieCreate')}}">Sessie</a>
+                    <a class="nav-link" href="{{route('sessie_create')}}">Sessie</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Game</a>
@@ -17,7 +17,7 @@
             </ul>
             @guest
                 <div class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link" href="{{ route('admin_login') }}">{{ __('Login') }}</a>
                 </div>
                 @if (Route::has('register'))
                     <div class="nav-item">
