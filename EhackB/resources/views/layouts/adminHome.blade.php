@@ -24,7 +24,7 @@
 
 <body>
 <h1>Sessies</h1>
-@foreach($sessies as $item)
+@foreach($sessie as $item)
     <div class="card costumCard1" style="width: 18rem;">
         <img src="{{asset("Images/".$item->photo)}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -33,6 +33,20 @@
             <p class="card-text">Plaatsen: {{$item->places}}</p>
             <a href="#" class="btn btn-primary">Details</a>
             <a href="{{route('sessie_edit',['id'=>$item->id])}}" class="btn btn-primary">edit</a>
+        </div>
+    </div>
+
+
+@endforeach
+@foreach($game as $item)
+    <div class="card costumCard1" style="width: 18rem;">
+        <img src="{{asset("Images/".$item->photo)}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Name: {{$item->name}}</h5>
+            <p class="card-text">Datum: {{$item->date}}</p>
+            <p class="card-text">Locatie: {{$item->location}}</p>
+            <a href="#" class="btn btn-primary">Details</a>
+            <a href="{{route('game_edit',['id'=>$item->id])}}" class="btn btn-primary">edit</a>
         </div>
     </div>
 

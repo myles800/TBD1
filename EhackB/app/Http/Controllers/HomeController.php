@@ -24,8 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sponser=Sponser::all();
-        return view('home',["sponser"=>$sponser]);
+        $sponser=\App\Sponser::all();
+        $sessie=\App\Sessie::all();
+        $game=\App\Game::all();
+        return view('layouts/home',["sponser"=>$sponser,"sessie"=>$sessie,"game"=>$game]);
     }
 
 }

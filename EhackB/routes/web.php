@@ -15,10 +15,13 @@ Route::get('/', function () {
     $sponser=\App\Sponser::all();
     $sessie=\App\Sessie::all();
     $game=\App\Game::all();
-    return view('layouts/master',["sponser"=>$sponser,"sessie"=>$sessie,"game"=>$game]);
+    return view('layouts/home',["sponser"=>$sponser,"sessie"=>$sessie,"game"=>$game]);
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profiel', 'UserController@index')->name('profiel');
+
 Route::put('/edit', 'Auth\RegisterController@edit')->name('edit');
 
 Route::prefix('sessie')->group(function () {

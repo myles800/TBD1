@@ -26,14 +26,14 @@
 <body>
 <div class="row">
 
-<div class="col-3">
+    <div class="col-3">
 
-</div>
-<div class="col-6">
-    <img src="{{asset('Images/EhackB.png')}}" width="100%">
-</div>
-<div class="col-3">
-</div>
+    </div>
+    <div class="col-6">
+        <img src="{{asset('Images/EhackB.png')}}" width="100%">
+    </div>
+    <div class="col-3">
+    </div>
 </div>
 <div class="row">
 
@@ -76,9 +76,9 @@
             <div class="card costumCard" style="width: 18rem;">
                 <img src="{{asset("Images/".$item->photo)}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Tittel: {{$item->title}}</h5>
-                    <p class="card-text">Beschrijving: {{$item->desc1}}</p>
-                    <p class="card-text">Plaatsen: {{$item->places}}</p>
+                    <h5 class="card-title">Naam: {{$item->name}}</h5>
+                    <p class="card-text">Datum: {{$item->date}}</p>
+                    <p class="card-text">Locatie: {{$item->location}}</p>
                     <a href="#" class="btn btn-primary">Details</a>
                 </div>
             </div>

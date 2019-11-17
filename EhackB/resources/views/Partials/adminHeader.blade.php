@@ -11,7 +11,7 @@
                     <a class="nav-link" href="{{route('sessie_create')}}">Sessie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Game</a>
+                    <a class="nav-link" href="{{route('game_create')}}">Game</a>
                 </li>
 
             </ul>

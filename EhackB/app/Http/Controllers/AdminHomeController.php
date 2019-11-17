@@ -11,9 +11,9 @@ class AdminHomeController extends Controller
 {
     //
     public function index(){
-        $sessies=Sessie::all();
-        $games=Game::all();
+        $sessie=Sessie::all();
+        $game=Game::all();
         $sponsers=Sponser::all();
-        return view('layouts/adminHome',['sessies'=>$sessies,'games'=>$games,'sponsers'=>$sponsers]);
+        return view('layouts/adminHome',['sessie'=>$sessie,'game'=>$game,'sponsers'=>$sponsers]);
     }
 }

@@ -27,9 +27,8 @@ class GameController extends Controller
     public function createPost(Request $request)
     {
         $validatieData=$request->validate([
-            'title'=>'required|max:30|min:3',
+            'name'=>'required|max:30|min:3',
             'photo'=>'required',
-            'name'=>'required|max:50|min:3',
             'date'=>'required|date',
             'location'=>'required|max:255|min:1',]);
         $Sessie = Game::create(['name' => $request->input('name'),'photo' => $request->input('photo')

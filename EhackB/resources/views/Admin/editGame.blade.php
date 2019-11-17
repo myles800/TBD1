@@ -34,33 +34,26 @@
                     <div class="card-header">Edit Sessie</div>
                     <div class="card-body">
                         <form method="POST" action="{{route('game_edit_post',['id'=>collect(request()->segments())->last()])}}">
-                            @method('PUT')
-                            @csrf
-                            <div class="form-group">
-                                <label for="title">Tittel</label>
-                                <input name="title" type="text" class="form-control" id="title" placeholder="title">
-                            </div>
-                            <div class="form-group">
-                                <label for="photo">Foto</label>
-                                <input name="photo" type="text" class="form-control" id="desc" placeholder="Photo.png">
-                            </div>
-                            <div class="form-group">
-                                <label for="desc1">Kleine beshrijving</label>
-                                <input name="desc1" type="text" class="form-control" id="desc1"
-                                       placeholder="beschrijving">
-                            </div>
-                            <div class="form-group">
-                                <label for="desc2">Grote beshrijving</label>
-                                <textarea name="desc2" type="text" class="form-control" id="desc2" rows="3"
-                                          maxlength="255"
-                                          placeholder="beschrijving"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="places">Plaatsen</label>
-                                <input name="places" type="number" class="form-control" id="places" placeholder="30">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Create</button>
-                        </form>
+                                @method('PUT')
+                                @csrf
+                                <div class="form-group">
+                                    <label for="name">Naam</label>
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Naam">
+                                </div>
+                                <div class="form-group">
+                                    <label for="photo">Foto</label>
+                                    <input name="photo" type="text" class="form-control" id="desc" placeholder="Photo.png">
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Datum</label>
+                                    <input name="date" type="date" class="form-control" id="date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Locatie</label>
+                                    <input name="location" type="text" class="form-control" id="location" placeholder="Beersel">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </form>
                     </div>
                 </div>
             </div>
