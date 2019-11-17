@@ -12,6 +12,7 @@
 
 }
 .costumCard{
+    float: left;
     margin: 9%;
 }
 .tier1{

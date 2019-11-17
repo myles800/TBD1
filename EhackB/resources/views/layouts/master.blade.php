@@ -41,22 +41,50 @@
 
     </div>
     <div class="col-6">
-        <div class="card costumCard" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+        <br>
+        <br>
+        <br>
+        <h1>Sessies:</h1>
+        @foreach($sessie as $item)
+            <div class="card costumCard" style="width: 18rem;">
+                <img src="{{asset("Images/".$item->photo)}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Tittel: {{$item->title}}</h5>
+                    <p class="card-text">Beschrijving: {{$item->desc1}}</p>
+                    <p class="card-text">Plaatsen: {{$item->places}}</p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
             </div>
-        </div>
-        <div class="card costumCard" style="width: 18rem;" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body ">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
+        @endforeach
+    </div>
+    <div class="col-3">
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-3">
+
+    </div>
+    <div class="col-6">
+        <br>
+        <br>
+        <br>
+        <h1>Games:</h1>
+        @foreach($game as $item)
+            <div class="card costumCard" style="width: 18rem;">
+                <img src="{{asset("Images/".$item->photo)}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Tittel: {{$item->title}}</h5>
+                    <p class="card-text">Beschrijving: {{$item->desc1}}</p>
+                    <p class="card-text">Plaatsen: {{$item->places}}</p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
             </div>
-        </div>
+
+
+        @endforeach
     </div>
     <div class="col-3">
     </div>
