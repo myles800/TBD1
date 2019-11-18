@@ -54,10 +54,21 @@
                             <button type="submit" class="btn btn-primary">Change</button>
                         </form>
                         @if(Auth::user()->game->name!=null)
-                            <h1>U neemt deel aan de game: {{Auth::user()->game->name}}</h1>
+                            <h1>U neemt deel aan de game: </h1><p>{{Auth::user()->game->name}}</p>
                         @endif
-                        @else
+                        @if(Auth::user()->game->name==null)
                             <h1>U neemt niet deel aan een game</h1>
+                        @endif
+                        @if(Auth::user()->sessies!=null)
+                            <h1>U neemt deel aan de sessies: </h1>
+                            @foreach(Auth::user()->sessies as $sessie)
+                                <p>{{$sessie->title}}</p>
+                            @endforeach
+                        @endif
+                        @if(Auth::user()->sessies==null)
+                            <h1>U neemt niet deel aan een sessie</h1>
+                        @endif
+
                     </div>
                 </div>
             </div>
