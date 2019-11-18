@@ -54,7 +54,7 @@
                             <h5 class="card-title">Tittel: {{$item->title}}</h5>
                             <p class="card-text">Beschrijving: {{$item->desc1}}</p>
                             <p class="card-text">Plaatsen: {{$item->places}}</p>
-                            <a href="{{route('sessie_details',['id' => $item->id])}}" class="btn btn-primary">Details</a>
+                            <a href="{{route('sessie_details',['id' => $item->id])}}" class="btn btn-info">Details</a>
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                             <h5 class="card-title">Naam: {{$item->name}}</h5>
                             <p class="card-text">Datum: {{$item->date}}</p>
                             <p class="card-text">Locatie: {{$item->location}}</p>
-                            <a href="{{route('game_details',['id' => $item->id])}}" class="btn btn-primary">Details</a>
+                            <a href="{{route('game_details',['id' => $item->id])}}" class="btn btn-info">Details</a>
                         </div>
                     </div>
 

@@ -29,6 +29,7 @@ Route::prefix('profiel')->group(function () {
 
 Route::prefix('sessie')->group(function () {
     Route::get('/details/{id}','SessieController@details')->name('sessie_details');
+    Route::get('/delete/{id}','SessieController@delete')->name('sessie_delete');
     Route::get('/create','SessieController@create')->name('sessie_create');
     Route::get('/edit/{id}','SessieController@edit')->name('sessie_edit');
     Route::put('/editPost/{id}', 'SessieController@editPost')->name('sessie_edit_post');
@@ -36,6 +37,7 @@ Route::prefix('sessie')->group(function () {
 });
 Route::prefix('game')->group(function () {
     Route::get('/details/{id}','GameController@details')->name('game_details');
+    Route::get('/delete/{id}','GameController@delete')->name('game_delete');
     Route::get('/create','GameController@create')->name('game_create');
     Route::get('/edit/{id}','GameController@edit')->name('game_edit');
     Route::put('/editPost/{id}', 'GameController@editPost')->name('game_edit_post');

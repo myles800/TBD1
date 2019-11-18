@@ -53,6 +53,6 @@ class SessieController extends Controller
     public function delete($id)
     {
         $deletedRows = Sessie::where('id', $id)->delete();
-        return view('admin');
+        return view('layouts/adminHome');
     }
 }

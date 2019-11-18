@@ -51,6 +51,6 @@ class GameController extends Controller
     public function delete($id)
     {
         $deletedRows = Game::where('id', $id)->delete();
-        return view('admin');
+        return view('layouts/adminHome');
     }
 }

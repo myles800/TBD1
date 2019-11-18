@@ -23,21 +23,28 @@
 @yield('header')
 
 <body>
-<h1>Sessies</h1>
-@foreach($sessie as $item)
+@if($sessie!=null)
+    <h1>Sessies</h1>
+
+    @foreach($sessie as $item)
     <div class="card costumCard1" style="width: 18rem;">
         <img src="{{asset("Images/".$item->photo)}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Tittel: {{$item->title}}</h5>
             <p class="card-text">Beschrijving: {{$item->desc1}}</p>
             <p class="card-text">Plaatsen: {{$item->places}}</p>
-            <a href="#" class="btn btn-primary">Details</a>
-            <a href="{{route('sessie_edit',['id'=>$item->id])}}" class="btn btn-primary">edit</a>
+            <a href="#" class="btn btn-info">Details</a>
+            <a href="{{route('sessie_edit',['id'=>$item->id])}}" class="btn btn-warning">edit</a>
+            <a href="{{route('sessie_delete',['id'=>$item->id])}}" class="btn btn-danger">delete</a>
         </div>
     </div>
 
-
 @endforeach
+@endif
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+@if($game!=null)
+<h1>Games</h1>
+
 @foreach($game as $item)
     <div class="card costumCard1" style="width: 18rem;">
         <img src="{{asset("Images/".$item->photo)}}" class="card-img-top" alt="...">
@@ -45,13 +52,14 @@
             <h5 class="card-title">Name: {{$item->name}}</h5>
             <p class="card-text">Datum: {{$item->date}}</p>
             <p class="card-text">Locatie: {{$item->location}}</p>
-            <a href="#" class="btn btn-primary">Details</a>
-            <a href="{{route('game_edit',['id'=>$item->id])}}" class="btn btn-primary">edit</a>
+            <a href="#" class="btn btn-info">Details</a>
+            <a href="{{route('game_edit',['id'=>$item->id])}}" class="btn btn-warning">edit</a>
+            <a href="{{route('game_delete',['id'=>$item->id])}}" class="btn btn-danger">delete</a>
         </div>
     </div>
 
 
 @endforeach
-
+@endif
 </body>
 </html>
