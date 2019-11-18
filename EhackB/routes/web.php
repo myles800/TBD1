@@ -20,11 +20,19 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/profiel', 'UserController@index')->name('profiel');
 
-Route::put('/edit', 'Auth\RegisterController@edit')->name('edit');
+Route::prefix('profiel')->group(function () {
+
+    Route::get('/', 'UserController@index')->name('profiel');
+    Route::put('/changePassword', 'UserController@changePassword')->name('changePassword');
+    Route::put('/changeProfiel', 'UserController@changeProfiel')->name('changeProfiel');
+
+
+});
 
 Route::prefix('sessie')->group(function () {
+
+    Route::get('/details/{id}','SessieController@details')->name('sessie_details');
 
     Route::get('/create','SessieController@create')->name('sessie_create');
 
@@ -36,6 +44,8 @@ Route::prefix('sessie')->group(function () {
 
 });
 Route::prefix('game')->group(function () {
+
+    Route::get('/details/{id}','GameController@details')->name('game_details');
 
     Route::get('/create','GameController@create')->name('game_create');
 

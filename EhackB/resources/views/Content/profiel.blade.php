@@ -8,13 +8,18 @@
                 <div class="card-header">Profiel</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
                         </div>
                     @endif
 
-                        <form method="POST" action="{{route('edit')}}">
+                        <form method="POST" action="{{route('changeProfiel')}}">
                             @method('PUT')
                             @csrf
                             <div class="form-group">
@@ -25,6 +30,24 @@
                                 <label for="name">Email address</label>
                                 <input name="name" type="text" class="form-control" id="name" placeholder="{{Auth::user()->name}}">
                             </div>
+                            <button type="submit" class="btn btn-primary">Change</button>
+                        </form>
+                        <form method="POST" action="{{route('changePassword')}}">
+                            @method('PUT')
+                            @csrf
+                            <div class="form-group">
+                                <label for="currentPassword">Huidig passwoord</label>
+                                <input name="currentPassword" type="password" class="form-control" id="currentPassword" >
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Nieuw passwoord</label>
+                                <input name="newPassword" type="password" class="form-control" id="newPassword" >
+                            </div>
+                            <div class="form-group">
+                                <label for="repeatNewPassword">Herhaal nieuw passwoord</label>
+                                <input name="repeatNewPassword" type="password" class="form-control" id="repeatNewPassword" >
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Change</button>
                         </form>
                 </div>

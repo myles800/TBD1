@@ -47,7 +47,7 @@ class SessieController extends Controller
     public function details($id)
     {
         $sessie = Sessie::find($id);
-        return view('content/details',["sessie"=>$sessie]);
+        return view('content/detailsSessies',["sessie"=>$sessie]);
     }
 
     public function delete($id)

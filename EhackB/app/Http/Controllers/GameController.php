@@ -45,7 +45,7 @@ class GameController extends Controller
     public function details($id)
     {
         $game = Game::find($id);
-        return view('content/details',["game"=>$game]);
+        return view('content/detailsGames',["game"=>$game]);
     }
 
     public function delete($id)
