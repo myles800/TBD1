@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class SponserController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index(){
        $sponser= Sponser::all();
         return view('Admin/editSponser',['sponser'=>$sponser]);

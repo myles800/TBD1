@@ -23,7 +23,7 @@ class AdminLoginController extends Controller
             'email'=>'required|email',
             'password'=>'required|min:6']);
         if(Auth::guard('admin')->attempt(['email'=>$request->input('email'),'password'=>$request->input('password')],$request->filled('remember'))){
-            return redirect()->intended('admin');
+            return redirect()->route('admin');
         }
         return redirect()->back()->with($request->only('email','remember'));
 

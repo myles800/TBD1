@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Sessie;
+use App\Sessie_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\File;
 
 class SessieController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function editPost(Request $request,$id)
     {
         $validatieData=$request->validate([
@@ -29,11 +37,16 @@ class SessieController extends Controller
     {
         $validatieData=$request->validate([
             'title'=>'required|max:30|min:3',
-            'photo'=>'required',
-                'desc1'=>'required|max:50|min:3',
-                'desc2'=>'required|max:255|min:3',
-                'places'=>'required|max:255|min:1',]);
-        $Sessie = Sessie::create(['title' => $request->input('title'),'photo' => $request->input('photo')
+            'desc1'=>'required|max:50|min:3',
+            'desc2'=>'required|max:255|min:3',
+            'places'=>'required|max:255|min:1',]);
+
+        $fileContents = $request->file('photo');
+
+        $fileContents->storeAs('public',$fileContents->getClientOriginalName(),['file'=>$fileContents]);
+
+
+        $Sessie = Sessie::create(['title' => $request->input('title'),'photo' =>$fileContents->getClientOriginalName()
             ,'desc1' => $request->input('desc1'),'desc2' => $request->input('desc2'),'places' => $request->input('places')]);
         return redirect()->route('admin_home');
     }
@@ -44,15 +57,12 @@ class SessieController extends Controller
     public function edit(){
         return view('Admin/editSessie');
     }
-    public function details($id)
-    {
-        $sessie = Sessie::find($id);
-        return view('content/detailsSessies',["sessie"=>$sessie]);
-    }
+
 
     public function delete($id)
     {
         $deletedRows = Sessie::where('id', $id)->delete();
-        return view('layouts/adminHome');
+        return redirect()->route('admin_home');
     }
+
 }

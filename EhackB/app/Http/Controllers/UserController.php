@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Game;
+use App\Sessie;
+use App\sessie_user;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +19,10 @@ class UserController extends Controller
     }
 
     public function index()
-    {
-        return view('Content/profiel');
+    {$sponser=\App\Sponser::all();
+        $sessie=\App\Sessie::all();
+        $game=\App\Game::all();
+        return view('Content/profiel',["sponser"=>$sponser,"sessie"=>$sessie,"game"=>$game]);
     }
 
     public function changePassword(Request $request){
@@ -47,5 +51,21 @@ class UserController extends Controller
 
         return redirect()->back()->with("success","profiel gewijzigd!");
     }
+    public function addSessie(Request $request,$id)
+    {
+        $userId=$request->user()->id;
+        $post1=Sessie::find($id);
+        $post1->places=$post1->places-1;
+        $post1->save();
+        $post2 = sessie_user::create(['sessie_id' => $id,'user_id' => $userId]);
 
+        return redirect()->route('profiel');
+    }
+    public function addGame(Request $request,$id)
+    {
+        $post=Auth::user();
+        $post->game_id=$id;
+        $post->save();
+        return redirect()->route('profiel');
+    }
 }

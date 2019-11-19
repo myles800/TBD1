@@ -31,7 +31,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Edit Sessie</div>
+                    <div class="card-header">Edit Game</div>
                     <div class="card-body">
                         <form method="POST" action="{{route('game_edit_post',['id'=>collect(request()->segments())->last()])}}">
                                 @method('PUT')

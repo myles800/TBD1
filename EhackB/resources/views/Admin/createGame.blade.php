@@ -31,9 +31,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create Sessie</div>
+                    <div class="card-header">Create Game</div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('game_create_post')}}">
+                        <form method="POST" action="{{route('game_create_post')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Naam</label>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo">Foto</label>
-                                <input name="photo" type="text" class="form-control" id="desc" placeholder="Photo.png">
+                                <input name="photo" type="file" class="form-control" id="desc" placeholder="Photo.png">
                             </div>
                             <div class="form-group">
                                 <label for="date">Datum</label>

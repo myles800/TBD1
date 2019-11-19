@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Game;
+use App\Sessie;
 use App\Sponser;
 use Illuminate\Http\Request;
 
@@ -28,6 +30,16 @@ class HomeController extends Controller
         $sessie=\App\Sessie::all();
         $game=\App\Game::all();
         return view('layouts/home',["sponser"=>$sponser,"sessie"=>$sessie,"game"=>$game]);
+    }
+    public function detailsSessie($id)
+    {
+        $sessie = Sessie::find($id);
+        return view('content/detailsSessies',["sessie"=>$sessie]);
+    }
+    public function detailsGame($id)
+    {
+        $game = Game::find($id);
+        return view('content/detailsGames',["game"=>$game]);
     }
 
 }

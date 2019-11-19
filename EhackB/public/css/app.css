@@ -6,14 +6,21 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+.body{
+    background-image:url('https://media.giphy.com/media/rWY9ySfjytitq/giphy.gif');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+     }
 .costumCard1{
     float: left;
 
 }
 .costumCard{
     float: left;
-    margin: 9%;
+    margin: 5%;
+
 }
 .tier1{
     width:9%;
@@ -31,7 +38,7 @@
     margin:10px;
 }
 .footer{
-    background-color: white;
+    background-color: black;
     display: table-row;
     height: 0;
 }

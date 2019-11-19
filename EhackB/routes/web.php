@@ -13,8 +13,12 @@
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
+Route::prefix('home')->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/gameDetails/{id}','HomeController@detailsGame')->name('game_details');
+    Route::get('/sessieDetails/{id}','HomeController@detailsSessie')->name('sessie_details');
+});
 
 Route::prefix('sponser')->group(function () {
     Route::get('/','SponserController@index')->name('sponser');
@@ -25,10 +29,11 @@ Route::prefix('profiel')->group(function () {
     Route::get('/', 'UserController@index')->name('profiel');
     Route::put('/changePassword', 'UserController@changePassword')->name('changePassword');
     Route::put('/changeProfiel', 'UserController@changeProfiel')->name('changeProfiel');
+    Route::get('/addSessie/{id}', 'UserController@addSessie')->name('sessie_add');
+    Route::get('/addGame/{id}', 'UserController@addGame')->name('game_add');
 });
 
 Route::prefix('sessie')->group(function () {
-    Route::get('/details/{id}','SessieController@details')->name('sessie_details');
     Route::get('/delete/{id}','SessieController@delete')->name('sessie_delete');
     Route::get('/create','SessieController@create')->name('sessie_create');
     Route::get('/edit/{id}','SessieController@edit')->name('sessie_edit');
@@ -36,7 +41,6 @@ Route::prefix('sessie')->group(function () {
     Route::post('/createPost', 'SessieController@createPost')->name('sessie_create_post');
 });
 Route::prefix('game')->group(function () {
-    Route::get('/details/{id}','GameController@details')->name('game_details');
     Route::get('/delete/{id}','GameController@delete')->name('game_delete');
     Route::get('/create','GameController@create')->name('game_create');
     Route::get('/edit/{id}','GameController@edit')->name('game_edit');
@@ -45,9 +49,9 @@ Route::prefix('game')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
+    Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/login','Auth\AdminLoginController@showLogin')->name('admin_login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin_login_submit');
-    Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/home','AdminHomeController@index')->name('admin_home');
 });
 

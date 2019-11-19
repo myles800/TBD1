@@ -32,7 +32,7 @@
                                 <input name="name" type="text" class="form-control" id="name"
                                        placeholder="{{Auth::user()->name}}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Change</button>
+                            <button type="submit" class="btn btn-success">Change</button>
                         </form>
                         <form method="POST" action="{{route('changePassword')}}">
                             @method('PUT')
@@ -51,23 +51,36 @@
                                        id="repeatNewPassword">
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Change</button>
+                            <button type="submit" class="btn btn-success">Change</button>
                         </form>
                         @if(Auth::user()->game->name!=null)
-                            <h1>U neemt deel aan de game: </h1><p>{{Auth::user()->game->name}}</p>
-                        @endif
-                        @if(Auth::user()->game->name==null)
-                            <h1>U neemt niet deel aan een game</h1>
-                        @endif
-                        @if(Auth::user()->sessies!=null)
-                            <h1>U neemt deel aan de sessies: </h1>
-                            @foreach(Auth::user()->sessies as $sessie)
-                                <p>{{$sessie->title}}</p>
-                            @endforeach
-                        @endif
-                        @if(Auth::user()->sessies==null)
-                            <h1>U neemt niet deel aan een sessie</h1>
-                        @endif
+                            <h2>U neemt deel aan de game: </h2>
+                                    <div class="card " style="width: 18rem; margin-left:5%;margin-bottom:3%;">
+                                        <img src="{{ asset('storage/'.Auth::user()->game->photo) }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Naam: {{Auth::user()->game->name}}</h5>
+                                            <p class="card-text">Datum: {{Auth::user()->game->date}}</p>
+                                            <p class="card-text">Locatie: {{Auth::user()->game->location}}</p>
+                                            <a href="{{route('game_details',['id' => Auth::user()->game->id])}}" class="btn btn-success">Details</a>
+                                        </div>
+                                    </div>
+                            @endif
+
+                            @if(Auth::user()->sessies!=null)
+                                <h2>U neemt deel aan de sessies: </h2>
+                                @foreach(Auth::user()->sessies as $item)
+                                        <div class="card " style="width: 18rem; float:left; margin-left:5%;margin-bottom:3%;">
+                                            <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Tittel: {{$item->title}}</h5>
+                                                <p class="card-text">Beschrijving: {{$item->desc1}}</p>
+                                                <p class="card-text">Plaatsen: {{$item->places}}</p>
+                                                <a href="{{route('sessie_details',['id' => $item->id])}}" class="btn btn-success">Details</a>
+                                            </div>
+                                        </div>
+                                @endforeach
+                            @endif
+
 
                     </div>
                 </div>

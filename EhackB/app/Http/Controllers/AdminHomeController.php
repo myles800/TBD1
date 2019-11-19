@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 class AdminHomeController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index(){
         $sessie=Sessie::all();
         $game=Game::all();
