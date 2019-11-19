@@ -8,12 +8,12 @@
                     <a class="nav-link" href="{{route('home')}}" style="color: greenyellow;">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color:greenyellow;">About</a>
+                    <a class="nav-link" href="{{route('about')}}" style="color:greenyellow;">About</a>
                 </li>
 
             </ul>
             <ul class="nav justify-content-center col-8 ">
-                <h1>  <a class="nav-link" href="{{route('home')}}" style="color:white;">EhackB </a>
+                <h1>  <a class="nav-link" href="{{route('home')}}" style="color:white;">EhackB: 20/02/2020</a>
                     </h1>
             </ul>
 

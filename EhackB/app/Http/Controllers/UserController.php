@@ -19,7 +19,8 @@ class UserController extends Controller
     }
 
     public function index()
-    {$sponser=\App\Sponser::all();
+    {
+        $sponser=\App\Sponser::all();
         $sessie=\App\Sessie::all();
         $game=\App\Game::all();
         return view('Content/profiel',["sponser"=>$sponser,"sessie"=>$sessie,"game"=>$game]);

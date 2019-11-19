@@ -36,7 +36,7 @@ class SessieController extends Controller
     public function createPost(Request $request)
     {
         $validatieData=$request->validate([
-            'title'=>'required|max:30|min:3',
+            'title'=>'required|max:30|min:2',
             'desc1'=>'required|max:50|min:3',
             'desc2'=>'required|max:255|min:3',
             'places'=>'required|max:255|min:1',]);

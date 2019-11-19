@@ -23,13 +23,16 @@
 @yield('header')
 
 <body>
-@if($sessie!=null)
+<div class="row">
+    <div class="col">
+
+    @if($sessie!=null)
     <h1>Sessies</h1>
 
     @foreach($sessie as $item)
-    <div class="card costumCard1" style="width: 18rem;">
+    <div class="card costumCard1" style="width: 18rem;float:left;">
 
-        <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
+        <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="..." style="height: 200px;">
         <div class="card-body">
             <h5 class="card-title">Tittel: {{$item->title}}</h5>
             <p class="card-text">Beschrijving: {{$item->desc1}}</p>
@@ -42,13 +45,16 @@
 
 @endforeach
 @endif
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>
+<div class="row">
+<div class="col">
 @if($game!=null)
 <h1>Games</h1>
 
 @foreach($game as $item)
-    <div class="card costumCard1" style="width: 18rem;">
-        <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
+    <div class="card costumCard1" style="width: 18rem;float:left;">
+        <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="..."style="height: 200px;">
         <div class="card-body">
             <h5 class="card-title">Name: {{$item->name}}</h5>
             <p class="card-text">Datum: {{$item->date}}</p>
@@ -62,5 +68,7 @@
 
 @endforeach
 @endif
+</div>
+</div>
 </body>
 </html>

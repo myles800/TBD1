@@ -8,7 +8,7 @@
                     <div class="card-header"><strong>Details:</strong> {{$game->name}} </div>
                     <div class="card-body">
 
-                    <img src="{{asset("Images/".$game->photo)}}" class="card-img-top">
+                    <img src="{{asset("storage/".$game->photo)}}" class="card-img-top">
 
                     <div class="form-group">
                         <label for="name">Naam</label>

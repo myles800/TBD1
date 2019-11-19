@@ -8,7 +8,7 @@
                     <div class="card-header"><strong>Details:</strong> {{$sessie->title}} </div>
                     <div class="card-body">
 
-                        <img src="{{asset("Images/".$sessie->photo)}}" class="card-img-top">
+                        <img src="{{asset("storage/".$sessie->photo)}}" class="card-img-top">
 
                         <div class="form-group">
                             <label for="title">Tittel</label>
