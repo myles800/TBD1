@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-header">Edit Sessie</div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('sessie_edit_post',['id'=>collect(request()->segments())->last()])}}">
+                        <form method="POST" action="{{route('sessie_edit_post',['id'=>collect(request()->segments())->last()])}}" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="form-group">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo">Foto</label>
-                                <input name="photo" type="text" class="form-control" id="desc" placeholder="Photo.png">
+                                <input name="photo" type="file" class="form-control" id="photo" placeholder="file">
                             </div>
                             <div class="form-group">
                                 <label for="desc1">Kleine beshrijving</label>

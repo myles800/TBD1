@@ -33,17 +33,17 @@
                 <div class="card">
                     <div class="card-header">Edit Game</div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('game_edit_post',['id'=>collect(request()->segments())->last()])}}">
+                        <form method="POST" action="{{route('game_edit_post',['id'=>collect(request()->segments())->last()])}}" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">Naam</label>
                                     <input name="name" type="text" class="form-control" id="name" placeholder="Naam">
                                 </div>
-                                <div class="form-group">
-                                    <label for="photo">Foto</label>
-                                    <input name="photo" type="text" class="form-control" id="desc" placeholder="Photo.png">
-                                </div>
+                            <div class="form-group">
+                                <label for="photo">Foto</label>
+                                <input name="photo" type="file" class="form-control" id="photo" placeholder="file">
+                            </div>
                                 <div class="form-group">
                                     <label for="date">Datum</label>
                                     <input name="date" type="date" class="form-control" id="date">

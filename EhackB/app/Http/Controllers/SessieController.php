@@ -19,14 +19,16 @@ class SessieController extends Controller
     {
         $validatieData=$request->validate([
             'title'=>'required|max:30|min:3',
-            'photo'=>'required',
             'desc1'=>'required|max:50|min:3',
             'desc2'=>'required|max:255|min:3',
             'places'=>'required|max:255|min:1',]);
+        $fileContents = $request->file('photo');
+
+        $fileContents->storeAs('public',$fileContents->getClientOriginalName(),['file'=>$fileContents]);
         $input = $request->only(['title', 'photo','desc1','desc2','places']);
         $post = Sessie::find($id);
         $post->title=$input['title'];
-        $post->photo=$input['photo'];
+        $post->photo=$fileContents->getClientOriginalName();
         $post->desc1=$input['desc1'];
         $post->desc2=$input['desc2'];
         $post->places=$input['places'];

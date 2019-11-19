@@ -37,7 +37,6 @@
             <h5 class="card-title">Tittel: {{$item->title}}</h5>
             <p class="card-text">Beschrijving: {{$item->desc1}}</p>
             <p class="card-text">Plaatsen: {{$item->places}}</p>
-            <a href="#" class="btn btn-info">Details</a>
             <a href="{{route('sessie_edit',['id'=>$item->id])}}" class="btn btn-warning">edit</a>
             <a href="{{route('sessie_delete',['id'=>$item->id])}}" class="btn btn-danger">delete</a>
         </div>
@@ -59,7 +58,6 @@
             <h5 class="card-title">Name: {{$item->name}}</h5>
             <p class="card-text">Datum: {{$item->date}}</p>
             <p class="card-text">Locatie: {{$item->location}}</p>
-            <a href="#" class="btn btn-info">Details</a>
             <a href="{{route('game_edit',['id'=>$item->id])}}" class="btn btn-warning">edit</a>
             <a href="{{route('game_delete',['id'=>$item->id])}}" class="btn btn-danger">delete</a>
         </div>

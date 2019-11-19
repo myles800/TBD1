@@ -56,7 +56,7 @@
                         @if(Auth::user()->game_id!=null)
                             <h2>U neemt deel aan de game: </h2>
                             <div class="card " style="width: 18rem; margin-left:5%;margin-bottom:3%;">
-                                <img src="{{ asset('storage/' . Auth::user()->game->photo) }}" class="card-img-top"
+                                <img src="{{ asset('storage/' . Auth::user()->game->photo) }}" style="height:200px;" class="card-img-top"
                                      alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Naam: {{Auth::user()->game->name}}</h5>
@@ -70,7 +70,7 @@
                         <h2>U neemt deel aan de sessies: </h2>
                         @foreach(Auth::user()->sessies as $item)
                             <div class="card " style="width: 18rem; float:left; margin-left:5%;margin-bottom:3%;">
-                                <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" alt="...">
+                                <img src="{{ asset('storage/'.$item->photo) }}" class="card-img-top" style="height:200px;" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Tittel: {{$item->title}}</h5>
                                     <p class="card-text">Beschrijving: {{$item->desc1}}</p>

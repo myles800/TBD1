@@ -16,13 +16,15 @@ class GameController extends Controller
     {
         $validatieData=$request->validate([
             'name'=>'required|max:30|min:3',
-            'photo'=>'required',
             'date'=>'required|date',
             'location'=>'required|max:255|min:1',]);
+        $fileContents = $request->file('photo');
+        $fileContents->storeAs('public',$fileContents->getClientOriginalName(),['file'=>$fileContents]);
+
         $input = $request->only(['name', 'photo','date','location']);
         $post = Game::find($id);
         $post->name=$input['name'];
-        $post->photo=$input['photo'];
+        $post->photo=$fileContents->getClientOriginalName();
         $post->date=$input['date'];
         $post->location=$input['location'];
         $post->save();
