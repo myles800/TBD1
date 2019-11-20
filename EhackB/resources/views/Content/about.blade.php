@@ -5,7 +5,7 @@
     <p>https://laravel.com/docs/6.x/requests</p>
     <p>https://laravel.com/docs/6.x/requests</p>
     <h1>Links:</h1>
-    <h2>User platform -> heeft authenticatie nodig d.m.v. login</h2>
+    <h2>User platform -> heeft authenticatie nodig d.m.v. login => email= 'gebruiker@hotmail.com' && passwoord='123456'</h2>
 
     <h3>Home</h3>
     <p>get:http://127.0.0.1:8000/ -> Home met de beschikbare games en sessies, ook is er meer info over de vervoersmogelijkheden, datum en locatie</p>
@@ -23,7 +23,7 @@
     <p>get:http://127.0.0.1:8000/profiel/addGame/{id} -> laat user deelnemen aan sessie op home en add in profiel</p>
     <p>get:http://127.0.0.1:8000/profiel/addGame/{id} -> laat user deelnemen aan game op home en add in profiel</p>
 
-    <h2>Admin platform -> heeft authenticatie nodig d.m.v. login</h2>
+    <h2>Admin platform -> heeft authenticatie nodig d.m.v. login=>email= 'gebruiker@hotmail.com' && passwoord='123456'</h2>
 
     <h3>Admin</h3>
     <p>get:http://127.0.0.1:8000/admin/ -> admin home</p>
