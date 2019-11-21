@@ -6,20 +6,47 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+.body{
+    background-image:url('https://media.giphy.com/media/rWY9ySfjytitq/giphy.gif');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+     }
+.costumCard1{
+    float: left;
+
+}
+.costumCard{
+    float: left;
+    margin: 5%;
+
+}
 .tier1{
-    width:15%;
+    width:9%;
     height:auto;
     margin:10px;
 }
 .tier2{
-    width:10%;
+    width:6%;
     height:auto;
     margin:10px;
 }
 .tier3{
-    width:5%;
+    width:3%;
     height:auto;
     margin:10px;
+}
+.footer{
+    background-color: black;
+    display: table-row;
+    height: 0;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
 }
 :root {
   --blue: #3490dc;

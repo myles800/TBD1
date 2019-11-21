@@ -1,6 +1,6 @@
 <!doctype html>
-@include('Partials.footer')
-@include('Partials.header')
+@include('Partials.adminHeader')
+@include('Partials.errorPartial')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -22,9 +22,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 @yield('header')
-
 <body>
-
+    <div id="app">
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
 </body>
-@yield('footer')
 </html>
