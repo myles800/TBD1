@@ -3,7 +3,8 @@
 @section('content')
     <h1>Bronnen:</h1>
     <p>https://laravel.com/docs/6.x/requests</p>
-    <p>https://laravel.com/docs/6.x/requests</p>
+    <p>https://www.youtube.com/watch?v=iKRLrJXNN4M&t=972s</p>
+    <p>https://developers.google.com/maps/documentation/embed/start</p>
     <h1>Links:</h1>
     <h2>User platform -> heeft authenticatie nodig d.m.v. login => email= 'gebruiker@hotmail.com' && passwoord='123456'</h2>
 
