@@ -1,6 +1,9 @@
 @extends('layouts.about')
 
 @section('content')
+    <h1>TODO:</h1>
+    <p>php artisan storage:link  => om symbolic link te creëren.</p>
+    <p>dummy data is zonder foto's omdat deze niet mee gepushed worden, u kan wel een nieuwe sessie aanmaken en foto toevoegen.</p>
     <h1>Bronnen:</h1>
     <p>https://laravel.com/docs/6.x/requests</p>
     <p>https://www.youtube.com/watch?v=iKRLrJXNN4M&t=972s</p>
